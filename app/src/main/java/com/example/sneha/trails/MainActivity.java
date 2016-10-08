@@ -21,8 +21,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -236,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
       Log.i(TAG, "target bearing: "+targetBearing);
       Log.i(TAG, "final rotation angle: "+finalRotationAngle);
         Log.i("Update_Position", "restarted advertising and updated position..");
+
     }
 
     private static double mod(double a, double b) {
@@ -371,22 +375,39 @@ public class MainActivity extends AppCompatActivity {
         currentPath.add(data);
     }
 
-    public void startPath(View view){
+
+    public void togglePath(View view){
+        IS_PATH_RUNNING = !IS_PATH_RUNNING ;
+        currentPath = new ArrayList<LocationData>();
+        Button button = (Button) view;
+
+
+        if(IS_PATH_RUNNING){
+            startPath();
+            button.setText("Stop Path");
+        }else{
+            stopPath();
+            button.setText("Start Path");
+        }
+
+    }
+
+    public void startPath(){
         IS_PATH_RUNNING = TRUE;
         currentPath = new ArrayList<LocationData>();
         Log.i("Path_started", "Path BEGINS");
 
     }
 
-    public void stopPath(View view){
+    public void stopPath(){
         IS_PATH_RUNNING = FALSE;
         paths.add(currentPath);
         Log.i("Path_stopped", "Path ENDS");
 
-
         for (LocationData d: currentPath) {
             Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
         }
+
     }
 
 
