@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
     Boolean IS_PATH_RUNNING = false;
     ArrayList<LocationData> currentPath;
     List<List<LocationData>> paths = new ArrayList<List<LocationData>>();
+    double currentLatitude;
+    double currentLongitude;
+    double currentBearing;
+    double targetLatitude;
+    double targetLongitude;
+    double targetBearing;
+    double finalRotationAngle;
 
     static final int BEACON_ID = 1775;
 
@@ -211,8 +218,104 @@ public class MainActivity extends AppCompatActivity {
     public void UpdatePosition(Location location)
     {
         currentLocation = location;
+        currentLatitude = location.getLatitude();
+        currentLongitude = location.getLongitude();
+        currentBearing = location.getBearing();
+        targetLatitude = currentLatitude + 0.01;
+        targetLongitude = currentLongitude + 0.01;
+        targetBearing = calculateTargetBearing(currentLatitude, currentLongitude, targetLatitude, targetLongitude);
+        finalRotationAngle = calculateFinalBearing(currentBearing, targetBearing);
         restartAdvertising();
         Log.i("Update_Position", "restarted advertising and updated position..");
+    }
+
+    private static int mod(int a, int b) {
+    return (a % b + b) % b;
+  }
+
+    private static String TAG = "Orientation app";
+
+    public double calculateFinalBearing(double currentBearing, double targetBearing) {
+      double magneticHeading360 = currentBearing;
+      double targetOrientation360 = currentBearing;
+      double angle = Math.min(mod((int)(magneticHeading360 - targetOrientation360), 360), mod((int) (targetOrientation360 - magneticHeading360), 360));
+      boolean isRight = true;
+
+      boolean bothSameSide = false;
+      if ((magneticHeading360 > 180 && targetOrientation360 > 180) || (magneticHeading360 < 180 && targetOrientation360 < 180))
+        bothSameSide = true;
+
+      Log.d(TAG, "heading 360: " + magneticHeading360);
+      Log.d(TAG, "target orientation 360: " + targetOrientation360);
+      Log.d(TAG, "both on same side: " + bothSameSide);
+
+      if (bothSameSide) {
+        if (targetOrientation360 > magneticHeading360){
+          isRight = true;
+        }
+        else{
+          isRight = false;
+        }
+
+      } else if (180 < targetOrientation360 && targetOrientation360 < 270 && 0 < magneticHeading360 && magneticHeading360 < 90) {
+        if ((targetOrientation360 - magneticHeading360) < 180) {
+          isRight = true;
+        }
+        else {
+          isRight = false;
+        }
+      }
+      else if (0 < targetOrientation360 && targetOrientation360 < 90 && 180 < magneticHeading360 && magneticHeading360 < 270) {
+        if ((magneticHeading360  - targetOrientation360 ) < 180) {
+          isRight = false;
+        }
+        else {
+          isRight = true;
+        }
+      }
+      else if (270 < targetOrientation360 && targetOrientation360 < 360 && 90 < magneticHeading360 && magneticHeading360 < 180) {
+        if ((targetOrientation360 - magneticHeading360) < 180) {
+          isRight = true;
+        }
+        else {
+          isRight = false;
+        }
+      }
+      else if (270 < magneticHeading360 && magneticHeading360 < 360 && 90 < targetOrientation360 && targetOrientation360 < 180) {
+        if ((magneticHeading360  - targetOrientation360 ) < 180) {
+          isRight = false;
+        }
+        else {
+          isRight = true;
+        }
+      }
+      else if (270 < magneticHeading360 && magneticHeading360 < 360 && 0 < targetOrientation360 && targetOrientation360 < 90) {
+        isRight = true;
+      }
+      else if (0 < magneticHeading360 && magneticHeading360 < 90 && 270 < targetOrientation360 && targetOrientation360 < 360) {
+        isRight = false;
+      }
+      else if (90 < magneticHeading360 && magneticHeading360 < 180 && 180 < targetOrientation360 && targetOrientation360 < 270) {
+        isRight = true;
+      }
+      else if (180 < magneticHeading360 && magneticHeading360 < 270 && 90 < targetOrientation360 && targetOrientation360 < 180) {
+        isRight = false;
+      }
+      if (!isRight) {
+        angle = angle*(-1);
+      }
+      return angle;
+    }
+
+    public double calculateTargetBearing(double currentLatitude, double currentLongitude, double targetLatitude, double targetLongitude) {
+
+        double dLon = (targetLongitude-currentLongitude);
+        double y = Math.sin(dLon) * Math.cos(targetLatitude);
+        double x = Math.cos(currentLatitude)*Math.sin(targetLatitude) - Math.sin(currentLatitude)*Math.cos(targetLatitude)*Math.cos(dLon);
+        double brng = Math.toDegrees((Math.atan2(y, x)));
+        brng = (360 - ((brng + 360) % 360));
+        return brng;
+
     }
 
     /* Updated method */
@@ -224,7 +327,8 @@ public class MainActivity extends AppCompatActivity {
         if(location != null) {
             try {
                 double latitude = location.getLatitude();
-                byte[] buffer = ByteBuffer.allocate(8).putDouble(latitude).array();
+              Log.d(TAG, "sending finalRotationAngle in packet: "+finalRotationAngle);
+                byte[] buffer = ByteBuffer.allocate(8).putDouble(finalRotationAngle).array();
                 for (int i = 0, j =7; i < 8; i++, j--) packet[i] = buffer[j];
 
                 double longitude = location.getLongitude();
