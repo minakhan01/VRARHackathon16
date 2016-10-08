@@ -10,42 +10,71 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.example.sneha.trails.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trails!"
-        android:paddingBottom="50pt"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Latitude: "
-        android:id="@+id/location_latitude"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Longitude: "
-        android:id="@+id/location_longitude"/>
-
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_height="wrap_content"
-            android:text="Start Path"
-            android:onClick="startPath"/>
+        android:layout_height="120dp"
+        android:src="@drawable/hololens_front"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_height="wrap_content"
-            android:text="Stop Path"
-            android:onClick="stopPath"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif"
+        android:textSize="25sp"
+        android:text="Recording new Track"/>
 
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="18sp"
+        android:text="Look to your HoloLens"/>
 
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Path"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimary"
+        android:shadowRadius="10.0"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-thin"
+        android:onClick="togglePath"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/button"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Waiting for data..."
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:id="@+id/location_data"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitude:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/location_latitude"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Longitude:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/location_longitude"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bearing:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/location_bearing"
+        />
 </LinearLayout>

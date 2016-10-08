@@ -21,8 +21,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -223,15 +226,25 @@ public class MainActivity extends AppCompatActivity {
         currentLatitude = location.getLatitude();
         currentLongitude = location.getLongitude();
         currentBearing = location.getBearing();
-        targetLatitude = currentLatitude + 0.01;
-        targetLongitude = currentLongitude + 0.01;
+        targetLatitude = currentLatitude + 0.1;
+        targetLongitude = currentLongitude + 0.1;
         targetBearing = calculateTargetBearing(currentLatitude, currentLongitude, targetLatitude, targetLongitude);
         finalRotationAngle = calculateFinalBearing(currentBearing, targetBearing);
+      TextView bearingTextView = (TextView) findViewById(R.id.location_bearing);
+      bearingTextView.append(currentBearing+" "+targetBearing+" "+finalRotationAngle+" ");
         restartAdvertising();
+      Log.i(TAG, "current latitude: "+currentLatitude);
+      Log.i(TAG, "current longitude: "+currentLongitude);
+      Log.i(TAG, "target latitude: "+targetLatitude);
+      Log.i(TAG, "target longtitude: "+targetLongitude);
+      Log.i(TAG, "current bearing: "+currentBearing);
+      Log.i(TAG, "target bearing: "+targetBearing);
+      Log.i(TAG, "final rotation angle: "+finalRotationAngle);
         Log.i("Update_Position", "restarted advertising and updated position..");
+
     }
 
-    private static int mod(int a, int b) {
+    private static double mod(double a, double b) {
     return (a % b + b) % b;
   }
 
@@ -250,6 +263,7 @@ public class MainActivity extends AppCompatActivity {
       Log.d(TAG, "heading 360: " + magneticHeading360);
       Log.d(TAG, "target orientation 360: " + targetOrientation360);
       Log.d(TAG, "both on same side: " + bothSameSide);
+      Log.d(TAG, "angle: " + angle);
 
       if (bothSameSide) {
         if (targetOrientation360 > magneticHeading360){
@@ -363,7 +377,24 @@ public class MainActivity extends AppCompatActivity {
         currentPath.add(data);
     }
 
-    public void startPath(View view){
+
+    public void togglePath(View view){
+        IS_PATH_RUNNING = !IS_PATH_RUNNING ;
+        currentPath = new ArrayList<LocationData>();
+        Button button = (Button) view;
+
+
+        if(IS_PATH_RUNNING){
+            startPath();
+            button.setText("Stop Path");
+        }else{
+            stopPath();
+            button.setText("Start Path");
+        }
+
+    }
+
+    public void startPath(){
         IS_PATH_RUNNING = TRUE;
         currentPath = new ArrayList<LocationData>();
         Log.i("Path_started", "Path BEGINS");
@@ -372,15 +403,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void stopPath(View view){
+    public void stopPath(){
         IS_PATH_RUNNING = FALSE;
         paths.add(currentPath);
         Log.i("Path_stopped", "Path ENDS");
 
-
         for (LocationData d: currentPath) {
             Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
         }
+
     }
 
 

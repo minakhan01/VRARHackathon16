@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <!--To Use this go to: https://github.com/vinc3m1/RoundedImageView-->
+        <com.makeramen.roundedimageview.RoundedImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/item_image"
+            android:src="@drawable/background_city"
+            app:riv_corner_radius="10dp"
+            android:scaleType="fitCenter"
+            app:riv_oval="false"
+            android:padding="10dp"
+            />
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/shape_rounded_square"
+            >
+            <TextView
+                android:id="@+id/path_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-thin"
+                android:textColor="#fff"
+                android:text="100m">
+             </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/path_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-thin"
+                    android:textColor="#fff"
+                    android:text="10">
+                </TextView>
+                <ImageView
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/users_icon"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</LinearLayout>
