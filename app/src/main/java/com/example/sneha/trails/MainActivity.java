@@ -221,15 +221,24 @@ public class MainActivity extends AppCompatActivity {
         currentLatitude = location.getLatitude();
         currentLongitude = location.getLongitude();
         currentBearing = location.getBearing();
-        targetLatitude = currentLatitude + 0.01;
-        targetLongitude = currentLongitude + 0.01;
+        targetLatitude = currentLatitude + 0.1;
+        targetLongitude = currentLongitude + 0.1;
         targetBearing = calculateTargetBearing(currentLatitude, currentLongitude, targetLatitude, targetLongitude);
         finalRotationAngle = calculateFinalBearing(currentBearing, targetBearing);
+      TextView bearingTextView = (TextView) findViewById(R.id.location_bearing);
+      bearingTextView.append(currentBearing+" "+targetBearing+" "+finalRotationAngle+" ");
         restartAdvertising();
+      Log.i(TAG, "current latitude: "+currentLatitude);
+      Log.i(TAG, "current longitude: "+currentLongitude);
+      Log.i(TAG, "target latitude: "+targetLatitude);
+      Log.i(TAG, "target longtitude: "+targetLongitude);
+      Log.i(TAG, "current bearing: "+currentBearing);
+      Log.i(TAG, "target bearing: "+targetBearing);
+      Log.i(TAG, "final rotation angle: "+finalRotationAngle);
         Log.i("Update_Position", "restarted advertising and updated position..");
     }
 
-    private static int mod(int a, int b) {
+    private static double mod(double a, double b) {
     return (a % b + b) % b;
   }
 
@@ -248,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
       Log.d(TAG, "heading 360: " + magneticHeading360);
       Log.d(TAG, "target orientation 360: " + targetOrientation360);
       Log.d(TAG, "both on same side: " + bothSameSide);
+      Log.d(TAG, "angle: " + angle);
 
       if (bothSameSide) {
         if (targetOrientation360 > magneticHeading360){
