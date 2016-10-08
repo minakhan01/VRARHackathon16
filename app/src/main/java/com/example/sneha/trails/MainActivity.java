@@ -181,9 +181,11 @@ public class MainActivity extends AppCompatActivity {
                 longitude.append(" " + location.getLongitude());
                 if(IS_PATH_RUNNING){
                     Log.i("Path_started", "adding location to path");
-                    addLocationDataObject(location.getLatitude(), location.getLongitude());
+                    LocationData lastLocation = currentPath.get(currentPath.size()-1);
+                    if(areNotClose(lastLocation.latitude, lastLocation.longitude, location.getLatitude(), location.getLongitude())) {
+                        addLocationDataObject(location.getLatitude(), location.getLongitude());
+                    }
                 }
-
 
             }
 
@@ -201,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProviderDisabled(String provider) {
 
             }
-        };
+        };1
         try
         {
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
@@ -365,7 +367,9 @@ public class MainActivity extends AppCompatActivity {
         IS_PATH_RUNNING = TRUE;
         currentPath = new ArrayList<LocationData>();
         Log.i("Path_started", "Path BEGINS");
-
+        if(currentLocation != null){
+            addLocationDataObject(currentLatitude, currentLongitude);
+        }
     }
 
     public void stopPath(View view){
@@ -377,6 +381,26 @@ public class MainActivity extends AppCompatActivity {
         for (LocationData d: currentPath) {
             Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
         }
+    }
+
+
+    public boolean areNotClose(double lat1,double long1, double lat2, double long2){
+        double R = 6371; // km
+        double fixedDistance = 0.0006096;
+        double dLat = Math.toRadians(lat2-lat1); //(lat2-lat1).toRad();
+        double dLon = Math.toRadians(long2-long1);//(lon2-lon1).toRad();
+        double latitude1 = Math.toRadians(lat1); //lat1.toRad();
+        double latitude2 = Math.toRadians(lat2); //lat2.toRad();
+
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(latitude1) * Math.cos(latitude2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        double distance = R * c;
+
+        if(distance > fixedDistance) {
+            return true;
+        }
+        return false;
     }
 
 
