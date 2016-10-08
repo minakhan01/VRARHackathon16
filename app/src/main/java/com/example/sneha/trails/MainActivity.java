@@ -24,6 +24,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     LocationManager mLocationManager;
     static final int PERMISSION_RESULT_CODE = 1;
     Location currentLocation;
+    Boolean IS_PATH_RUNNING = false;
+    ArrayList<LocationData> currentPath;
+    List<List<LocationData>> paths = new ArrayList<List<LocationData>>();
 
     static final int BEACON_ID = 1775;
 
@@ -164,6 +172,9 @@ public class MainActivity extends AppCompatActivity {
                 TextView longitude = (TextView) findViewById(R.id.location_longitude);
 
                 longitude.append(" " + location.getLongitude());
+                if(IS_PATH_RUNNING){
+                    addLocationDataObject(location.getLatitude(), location.getLongitude());
+                }
 
 
             }
@@ -237,5 +248,27 @@ public class MainActivity extends AppCompatActivity {
 
         return packet;
     }
+
+    public void addLocationDataObject(double latitude, double longitude){
+        LocationData data = new LocationData();
+        data.latitude = latitude;
+        data.longitude =  longitude;
+        currentPath.add(data);
+    }
+
+    public void startPath(){
+        IS_PATH_RUNNING = TRUE;
+        currentPath = new ArrayList<LocationData>();
+    }
+
+    public void stopPath(){
+        IS_PATH_RUNNING = FALSE;
+        paths.add(currentPath);
+
+        for (LocationData d: currentPath) {
+            Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
+        }
+    }
+
 
 }

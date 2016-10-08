@@ -29,4 +29,23 @@
         android:text="Longitude: "
         android:id="@+id/location_longitude"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="Start Path"
+            android:onClick="startPath"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="Stop Path"
+            android:onClick="stopPath"/>
+
+    </LinearLayout>
+
 </LinearLayout>
