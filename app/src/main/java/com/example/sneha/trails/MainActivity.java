@@ -20,6 +20,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -165,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLocationChanged(Location location) {
                 UpdatePosition(location);
-                Log.i("On_Location_Changed", "Onlocationchange, update position"+location.getLatitude()+" long:"+location.getLongitude());
                 TextView latitude = (TextView) findViewById(R.id.location_latitude);
                 latitude.append(" " +location.getLatitude());
 
@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
                 longitude.append(" " + location.getLongitude());
                 if(IS_PATH_RUNNING){
+                    Log.i("Path_started", "adding location to path");
                     addLocationDataObject(location.getLatitude(), location.getLongitude());
                 }
 
@@ -256,14 +257,18 @@ public class MainActivity extends AppCompatActivity {
         currentPath.add(data);
     }
 
-    public void startPath(){
+    public void startPath(View view){
         IS_PATH_RUNNING = TRUE;
         currentPath = new ArrayList<LocationData>();
+        Log.i("Path_started", "Path BEGINS");
+
     }
 
-    public void stopPath(){
+    public void stopPath(View view){
         IS_PATH_RUNNING = FALSE;
         paths.add(currentPath);
+        Log.i("Path_stopped", "Path ENDS");
+
 
         for (LocationData d: currentPath) {
             Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
