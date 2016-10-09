@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{82F39D2C-7691-A894-03AA-E9050BF23F11}") = "Trails", "Assembly-CSharp.csproj", "{F5D5B928-11FE-CDD4-7A52-06A7AC940776}"
+EndProject
+Project("{82F39D2C-7691-A894-03AA-E9050BF23F11}") = "Trails", "Assembly-CSharp-Editor.csproj", "{013FD306-046C-79D7-814C-F5A499E6509C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5D5B928-11FE-CDD4-7A52-06A7AC940776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D5B928-11FE-CDD4-7A52-06A7AC940776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D5B928-11FE-CDD4-7A52-06A7AC940776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D5B928-11FE-CDD4-7A52-06A7AC940776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013FD306-046C-79D7-814C-F5A499E6509C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013FD306-046C-79D7-814C-F5A499E6509C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013FD306-046C-79D7-814C-F5A499E6509C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013FD306-046C-79D7-814C-F5A499E6509C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
