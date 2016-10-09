@@ -8,22 +8,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.GridView;
 
 import java.util.ArrayList;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import java.util.List;
 
 public class TracksScreen extends AppCompatActivity {
     //http://www.androidhub4you.com/2013/07/custom-grid-view-example-in-android.html
-    GridView gridView;
-    ArrayList<TrackView> gridArray = new ArrayList<TrackView>();
-    CustomGridViewAdapter customGridAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracks_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -39,30 +35,32 @@ public class TracksScreen extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        Log.i("resume", "resumed");
+        super.onResume();
+
+        GridView gridView;
+        ArrayList<TrackView> gridArray = new ArrayList<TrackView>();
+        CustomGridViewAdapter customGridAdapter;
+        //Refresh your stuff here
         //Adding Tracks
         //Add Grids
         Bitmap icon = BitmapFactory.decodeResource(this.getResources(), R.drawable.background_city);
 
         //Sneha, if you need to add stuff, add here:
         //gridArray.add(new TrackView(Bitmap icon, int pathDistance, int time of times it was followed by someone)
-
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,120,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,120,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-        gridArray.add(new TrackView(icon,100,10));
-
+        if(!SavedPaths.getInstance().getPaths().isEmpty()){
+            for(List<LocationData> l : SavedPaths.getInstance().getPaths()){
+                gridArray.add(new TrackView(icon,100,10));
+            }
+        }
+//        gridArray.add(new TrackView(icon,100,10));
+//        gridArray.add(new TrackView(icon,120,10));
         gridView = (GridView) findViewById(R.id.gridView1);
         customGridAdapter = new CustomGridViewAdapter(this, R.layout.row_grid, gridArray);
         gridView.setAdapter(customGridAdapter);
@@ -70,9 +68,6 @@ public class TracksScreen extends AppCompatActivity {
 
     private void AddNewTrack(){
         Intent intent = new Intent(this, MainActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.edit_message);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
 
     }

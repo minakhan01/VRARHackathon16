@@ -27,7 +27,6 @@ import android.widget.Toast;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Location currentLocation;
     Boolean IS_PATH_RUNNING = false;
     ArrayList<LocationData> currentPath;
-    List<List<LocationData>> paths = new ArrayList<List<LocationData>>();
+    //List<List<LocationData>> paths = new ArrayList<List<LocationData>>();
     double currentLatitude;
     double currentLongitude;
     double currentBearing;
@@ -396,7 +395,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void stopPath(){
-        paths.add(currentPath);
+        SavedPaths.getInstance().getPaths().add(currentPath);
         Log.i("Path_stopped", "Path ENDS");
         for (LocationData d: currentPath) {
             Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
