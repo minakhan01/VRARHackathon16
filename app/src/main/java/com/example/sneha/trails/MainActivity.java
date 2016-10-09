@@ -387,7 +387,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startPath(){
-        //IS_PATH_RUNNING = TRUE;
         currentPath = new ArrayList<LocationData>();
         Log.i("Path_started", "Path BEGINS");
         if(currentLocation != null){
@@ -397,10 +396,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void stopPath(){
-        //IS_PATH_RUNNING = FALSE;
         paths.add(currentPath);
         Log.i("Path_stopped", "Path ENDS");
-
         for (LocationData d: currentPath) {
             Log.i("currentPath","Latitude : " + d.latitude + "\nLongitude : " + d.longitude + "\n ");
         }
