@@ -10,6 +10,8 @@ public class SendDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_data);
+        //Sneha, To get the selected track:
+        //SavedPaths.getInstance().getSelectedPath();
     }
 
     public void toggleSendData(View view)

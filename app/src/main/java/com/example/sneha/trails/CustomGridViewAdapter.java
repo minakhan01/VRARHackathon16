@@ -60,6 +60,7 @@ public class CustomGridViewAdapter extends ArrayAdapter<TrackView> {
                 Intent intent = new Intent(getContext(), SendDataActivity.class);
                 Log.i("Button Position", "Track "+  position + " Selected");
                 SavedPaths.getInstance().setSelectedPath(position);
+                //SavedPaths.getInstance().getSelectedPath();
                 getContext().startActivity(intent);
                 //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
             }
