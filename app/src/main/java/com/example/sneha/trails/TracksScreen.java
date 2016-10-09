@@ -23,6 +23,7 @@ public class TracksScreen extends AppCompatActivity {
     CustomGridViewAdapter customGridAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracks_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -41,6 +42,9 @@ public class TracksScreen extends AppCompatActivity {
         //Adding Tracks
         //Add Grids
         Bitmap icon = BitmapFactory.decodeResource(this.getResources(), R.drawable.background_city);
+
+        //Sneha, if you need to add stuff, add here:
+        //gridArray.add(new TrackView(Bitmap icon, int pathDistance, int time of times it was followed by someone)
 
         gridArray.add(new TrackView(icon,100,10));
         gridArray.add(new TrackView(icon,120,10));
@@ -73,4 +77,9 @@ public class TracksScreen extends AppCompatActivity {
 
     }
 
+
+    public void callNextScreen(View view){
+        Intent intent = new Intent(this, SendDataActivity.class);
+        startActivity(intent);
+    }
 }

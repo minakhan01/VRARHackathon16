@@ -2,31 +2,184 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/Users/sneha/Code/Github/VRHackathon/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/Users/sneha/Code/Github/VRHackathon/VRARHackathon16/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_4b7d21c56c402743af7930a3ff8db6f3b8dd118e.jar" />
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_13758307362d9b358efd0a7480c955c770858536/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/sneha/Code/Github/VRHackathon/VRARHackathon16/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="814fc0c3ec69a944add398217d90077301501a74">
-        <dex dex="/Users/sneha/Code/Github/VRHackathon/VRARHackathon16/app/build/intermediates/pre-dexed/debug/com.makeramen-roundedimageview-2.2.1_dba6ae697cc224670f0a038cf7fd05e8bf809e6c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/sneha/Code/Github/VRHackathon/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/Users/sneha/Code/Github/VRHackathon/VRARHackathon16/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_5a3acb3ed26d565e8f00069a424206ed13b4970e.jar" />
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_22e8ae511a214942722210ed03769bce72ad4eaf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_9927971683cf04db7682193791be729081727748/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_69548e976bc464615e6b8c9c3402c1c07b6a1666/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1229f8078c5d735daa781f9307a15555711f123e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_e99b572bfde79e889e27c374392c7683071f65d1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_f4c58da2fd2ded859a1c0efdfeec8a99f659402b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="814fc0c3ec69a944add398217d90077301501a74">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.makeramen-roundedimageview-2.2.1_d07faeaa32df6cc2cb1f8016d87f627533685a1a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_3ce2f6c8753e0d48f507c21e82b3fc79cfde8147/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="40f5fb4cd97e961f9985bb9990f05e177a02d558">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_5b8b5463fbcc5ecde528cdf817f3e63c3f29fafe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_9752059e9c57364b93842c17b5ff5187ea69f99d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_4d72ebd3deacbd73687275d9d9b7105fb87dc456/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_b0627f8d00f58764f54e8ab555da8ad58a515be1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_080a972b825c371ac6dbe39c652ee3d6e7ed406f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_9ca064bdc6ce47ceb488f12874b281fb5704d3dd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7850a1ef130ef2d403a41f65d22a3e54bdc3f05f">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_8ef320f96b9497fac9040b629c6c80ce5bf38e77/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_5f7d5a2733e0f01706674ecdb4b2338ba4e95794/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_0103054910227b52da964a48f7bc124d364dddad/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_ea1dba902729c87336cb663a7036270e02ac5316/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/lucascassiano/Documents/VRARHackathon16/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_ba4c4fc2dfa02106af6ad4965ad2bea139ba733b/classes.dex" />
     </item>
 
 </items>
