@@ -21,7 +21,6 @@
             android:scaleType="fitCenter"
             app:riv_oval="false"
             android:padding="10dp"
-            android:onClick="callNextScreen"
             />
         <LinearLayout
             android:layout_width="90dp"

@@ -15,6 +15,8 @@ import android.widget.GridView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
 public class TracksScreen extends AppCompatActivity {
     //http://www.androidhub4you.com/2013/07/custom-grid-view-example-in-android.html
 
@@ -56,11 +58,11 @@ public class TracksScreen extends AppCompatActivity {
         //gridArray.add(new TrackView(Bitmap icon, int pathDistance, int time of times it was followed by someone)
         if(!SavedPaths.getInstance().getPaths().isEmpty()){
             for(List<LocationData> l : SavedPaths.getInstance().getPaths()){
-                gridArray.add(new TrackView(icon,100,10));
+                int id = 0; //<-- Change it Sneha :)
+                gridArray.add(new TrackView(id,icon,100,10));
             }
         }
-//        gridArray.add(new TrackView(icon,100,10));
-//        gridArray.add(new TrackView(icon,120,10));
+
         gridView = (GridView) findViewById(R.id.gridView1);
         customGridAdapter = new CustomGridViewAdapter(this, R.layout.row_grid, gridArray);
         gridView.setAdapter(customGridAdapter);
@@ -69,12 +71,7 @@ public class TracksScreen extends AppCompatActivity {
     private void AddNewTrack(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 
 
-    public void callNextScreen(View view){
-        Intent intent = new Intent(this, SendDataActivity.class);
-        startActivity(intent);
-    }
 }

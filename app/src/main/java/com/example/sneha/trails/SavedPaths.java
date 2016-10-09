@@ -11,6 +11,7 @@ public class SavedPaths {
 
     private static SavedPaths instance;
     private List<List<LocationData>> paths;
+    private int selectedPath;
 
     private SavedPaths() {
         paths = new ArrayList<>();
@@ -26,6 +27,14 @@ public class SavedPaths {
 
     public List<List<LocationData>> getPaths() {
         return paths;
+    }
+
+    public void setSelectedPath(int selectedPath){
+        this.selectedPath = selectedPath;
+    }
+
+    public int getSelectedPath(){
+        return selectedPath;
     }
 
 }

@@ -16,10 +16,10 @@ public class TrackView {
     Bitmap highlight;
     int distance;
     int timesUsed;
-
-
-    public TrackView(Bitmap image, int distance, int timesUsed) {
+    int id;
+    public TrackView(int id, Bitmap image, int distance, int timesUsed) {
         super();
+        this.id = id;
         this.highlight = image;
         this.distance = distance;
         this.timesUsed = timesUsed;
@@ -27,7 +27,6 @@ public class TrackView {
 
     public Bitmap getImage(){
         return highlight;
-
     }
 
     public Bitmap getHighlightImage(){
@@ -54,7 +53,11 @@ public class TrackView {
         return  timesUsed;
     }
 
+    public int getId(){return id;}
 
+    public void setId(int id){
+        this.id = id;
+    }
 
 }
 

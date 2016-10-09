@@ -7,6 +7,8 @@ package com.example.sneha.trails;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +33,7 @@ public class CustomGridViewAdapter extends ArrayAdapter<TrackView> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View row = convertView;
         RecordHolder holder = null;
 
@@ -51,7 +53,18 @@ public class CustomGridViewAdapter extends ArrayAdapter<TrackView> {
         TrackView item = data.get(position);
         holder.txtTitle.setText(item.getDistance()+"m");
         holder.imageItem.setImageBitmap(item.getImage());
-        return row;
+
+        row.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getContext(), SendDataActivity.class);
+                Log.i("Button Position", "Track "+  position + " Selected");
+                SavedPaths.getInstance().setSelectedPath(position);
+                getContext().startActivity(intent);
+                //DO SOMETHING! {RUN SOME FUNCTION ... DO CHECKS... ETC}
+            }
+        });
+            return row;
 
     }
 
