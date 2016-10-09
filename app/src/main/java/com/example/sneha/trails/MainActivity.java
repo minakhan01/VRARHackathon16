@@ -25,14 +25,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -111,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startAdvertising() {
         if (mBLEAdvertiser == null) return;
-        Log.i("start_advertising", "entered start advertising..");
+        //Log.i("start_advertising", "entered start advertising..");
 
 
         AdvertiseSettings settings = new AdvertiseSettings.Builder()
@@ -183,9 +178,9 @@ public class MainActivity extends AppCompatActivity {
 
                 longitude.append(" " + location.getLongitude());
                 if(IS_PATH_RUNNING){
-                    Log.i("Path_started", "adding location to path");
                     LocationData lastLocation = currentPath.get(currentPath.size()-1);
                     if(areNotClose(lastLocation.latitude, lastLocation.longitude, location.getLatitude(), location.getLongitude())) {
+                        Log.i("Path_started", "adding location to path");
                         addLocationDataObject(location.getLatitude(), location.getLongitude());
                     }
                 }
@@ -206,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProviderDisabled(String provider) {
 
             }
-        };1
+        };
         try
         {
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
@@ -233,14 +228,14 @@ public class MainActivity extends AppCompatActivity {
       TextView bearingTextView = (TextView) findViewById(R.id.location_bearing);
       bearingTextView.append(currentBearing+" "+targetBearing+" "+finalRotationAngle+" ");
         restartAdvertising();
-      Log.i(TAG, "current latitude: "+currentLatitude);
-      Log.i(TAG, "current longitude: "+currentLongitude);
-      Log.i(TAG, "target latitude: "+targetLatitude);
-      Log.i(TAG, "target longtitude: "+targetLongitude);
-      Log.i(TAG, "current bearing: "+currentBearing);
-      Log.i(TAG, "target bearing: "+targetBearing);
-      Log.i(TAG, "final rotation angle: "+finalRotationAngle);
-        Log.i("Update_Position", "restarted advertising and updated position..");
+//      Log.i(TAG, "current latitude: "+currentLatitude);
+//      Log.i(TAG, "current longitude: "+currentLongitude);
+//      Log.i(TAG, "target latitude: "+targetLatitude);
+//      Log.i(TAG, "target longtitude: "+targetLongitude);
+//      Log.i(TAG, "current bearing: "+currentBearing);
+//      Log.i(TAG, "target bearing: "+targetBearing);
+//      Log.i(TAG, "final rotation angle: "+finalRotationAngle);
+//        Log.i("Update_Position", "restarted advertising and updated position..");
 
     }
 
@@ -260,10 +255,10 @@ public class MainActivity extends AppCompatActivity {
       if ((magneticHeading360 > 180 && targetOrientation360 > 180) || (magneticHeading360 < 180 && targetOrientation360 < 180))
         bothSameSide = true;
 
-      Log.d(TAG, "heading 360: " + magneticHeading360);
-      Log.d(TAG, "target orientation 360: " + targetOrientation360);
-      Log.d(TAG, "both on same side: " + bothSameSide);
-      Log.d(TAG, "angle: " + angle);
+//      Log.d(TAG, "heading 360: " + magneticHeading360);
+//      Log.d(TAG, "target orientation 360: " + targetOrientation360);
+//      Log.d(TAG, "both on same side: " + bothSameSide);
+//      Log.d(TAG, "angle: " + angle);
 
       if (bothSameSide) {
         if (targetOrientation360 > magneticHeading360){
@@ -343,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
         if(location != null) {
             try {
                 double latitude = location.getLatitude();
-              Log.d(TAG, "sending finalRotationAngle in packet: "+finalRotationAngle);
+              //Log.d(TAG, "sending finalRotationAngle in packet: "+finalRotationAngle);
                 byte[] buffer = ByteBuffer.allocate(8).putDouble(finalRotationAngle).array();
                 for (int i = 0, j =7; i < 8; i++, j--) packet[i] = buffer[j];
 
@@ -365,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
                 packet = new byte[24];
             }
         }
-        Log.i("Build_packet", "Building GPS Packet , returning..");
+        //Log.i("Build_packet", "Building GPS Packet , returning..");
 
         return packet;
     }
@@ -380,10 +375,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void togglePath(View view){
         IS_PATH_RUNNING = !IS_PATH_RUNNING ;
-        currentPath = new ArrayList<LocationData>();
         Button button = (Button) view;
-
-
         if(IS_PATH_RUNNING){
             startPath();
             button.setText("Stop Path");
@@ -395,16 +387,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startPath(){
-        IS_PATH_RUNNING = TRUE;
+        //IS_PATH_RUNNING = TRUE;
         currentPath = new ArrayList<LocationData>();
         Log.i("Path_started", "Path BEGINS");
         if(currentLocation != null){
+            Log.i("startPath","Adding current location");
             addLocationDataObject(currentLatitude, currentLongitude);
         }
     }
 
     public void stopPath(){
-        IS_PATH_RUNNING = FALSE;
+        //IS_PATH_RUNNING = FALSE;
         paths.add(currentPath);
         Log.i("Path_stopped", "Path ENDS");
 
