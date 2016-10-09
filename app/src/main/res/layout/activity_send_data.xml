@@ -37,7 +37,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Path"
+        android:text="Start Trailing"
         android:textColor="@color/colorAccent"
         android:background="@color/colorPrimary"
         android:shadowRadius="10.0"

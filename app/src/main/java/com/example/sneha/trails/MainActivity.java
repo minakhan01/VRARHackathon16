@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     Location currentLocation;
     Boolean IS_PATH_RUNNING = false;
     ArrayList<LocationData> currentPath;
-    //List<List<LocationData>> paths = new ArrayList<List<LocationData>>();
     double currentLatitude;
     double currentLongitude;
     double currentBearing;
@@ -177,10 +176,15 @@ public class MainActivity extends AppCompatActivity {
 
                 longitude.append(" " + location.getLongitude());
                 if(IS_PATH_RUNNING){
-                    LocationData lastLocation = currentPath.get(currentPath.size()-1);
-                    if(areNotClose(lastLocation.latitude, lastLocation.longitude, location.getLatitude(), location.getLongitude())) {
-                        Log.i("Path_started", "adding location to path");
+                    if(currentPath.size() == 0) {
                         addLocationDataObject(location.getLatitude(), location.getLongitude());
+                    }
+                    else {
+                        LocationData lastLocation = currentPath.get(currentPath.size() - 1);
+                        if (areNotClose(lastLocation.latitude, lastLocation.longitude, location.getLatitude(), location.getLongitude())) {
+                            Log.i("Path_started", "adding location to path");
+                            addLocationDataObject(location.getLatitude(), location.getLongitude());
+                        }
                     }
                 }
 
@@ -388,10 +392,10 @@ public class MainActivity extends AppCompatActivity {
     public void startPath(){
         currentPath = new ArrayList<LocationData>();
         Log.i("Path_started", "Path BEGINS");
-        if(currentLocation != null){
-            Log.i("startPath","Adding current location");
-            addLocationDataObject(currentLatitude, currentLongitude);
-        }
+//        if(currentLocation != null){
+//            Log.i("startPath","Adding current location");
+//            addLocationDataObject(currentLatitude, currentLongitude);
+//        }
     }
 
     public void stopPath(){

@@ -15,8 +15,6 @@ import android.widget.GridView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
-
 public class TracksScreen extends AppCompatActivity {
     //http://www.androidhub4you.com/2013/07/custom-grid-view-example-in-android.html
 
